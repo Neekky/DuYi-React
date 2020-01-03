@@ -11,6 +11,7 @@ export default class MyClassComp extends React.Component {
      * 该方法必须返回React元素
      */
     render() {
+        console.log(this.props)
         if (this.props.obj) {
             return (
                 <>

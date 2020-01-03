@@ -7,7 +7,7 @@ const comp = <MyFuncComp number={3}/>; //使用组件，生成的，仍然是一
 
 console.log(comp);
 
-const div = <div title="Asdfa"></div>
+const div = <div title="Asdfa"><span>123123</span></div>
 
 console.log(div);
 
@@ -17,10 +17,10 @@ console.log(div);
 ReactDOM.render(<div>
     {/* {comp} */}
     <MyFuncComp number="2" />
-    <MyFuncComp number={5} />
+    <MyFuncComp number={5} ><div>123123</div></MyFuncComp>
     <MyFuncComp number={6} />
     <MyFuncComp number={7} />
-    <MyClassComp number="2" ennable />
+    <MyClassComp number="2" eable />
     <MyClassComp number={5} obj={{
         name: "成哥",
         age: 100
