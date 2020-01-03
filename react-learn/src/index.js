@@ -6,7 +6,7 @@ import src3 from "./assets/3.jpg";
 import "./index.css";
 
 const srcs = [src1, src2, src3]; //保存图片路径的数组
-
+console.log(srcs)
 let index = 0; //显示的图片索引
 
 const container = document.getElementById('root');
