@@ -7,7 +7,7 @@ setInterval(() => {
     num++;
     const div = (
         <div title="asdfadf">
-            {num}
+            
         </div>
     );
     ReactDOM.render(div, document.getElementById("root"));
