@@ -28,7 +28,7 @@ export default class TickControl extends Component {
             <div>
                 <Tick
                     onClick={this.handleClick}
-                    onOver={this.handleClick}
+                    onOver={this.handleOver}
                     number={10} />
                 <h2>
                     {status}
