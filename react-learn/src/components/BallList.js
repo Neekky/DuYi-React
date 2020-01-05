@@ -25,7 +25,7 @@ export default class BallList extends Component {
             if (this.state.ballInfoes.length === 10) {
                 clearInterval(timer);
             }
-        }, 1000);
+        }, 200);
     }
 
     render() {
