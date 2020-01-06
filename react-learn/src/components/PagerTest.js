@@ -13,11 +13,10 @@ export default class PagerTest extends Component {
         isLoading: false
     }
 
-    constructor(props) {
-        super(props);
+    componentDidMount(){
         this.fetchStudents();
-    }
 
+    }
     async fetchStudents() {
         this.setState({
             isLoading: true
