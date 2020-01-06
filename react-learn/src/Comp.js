@@ -19,8 +19,20 @@ export default class Comp extends Component {
     //         this.setState({
     //             n: this.state.n + 1
     //         });
+    //         // this.setState(cur => ({
+    //         //     n: cur.n + 1
+    //         // }));
+    //         // this.setState(cur => ({
+    //         //     n: cur.n + 1
+    //         // }));
+    //         // this.setState(cur => ({
+    //         //     n: cur.n + 1
+    //         // }));
     //     }, 1000)
+    //     console.log("state更新完成", this.state.n);
     // }
+
+
 
     handleClick = () => {
         this.setState(cur => {
