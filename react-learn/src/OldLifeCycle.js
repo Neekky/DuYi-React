@@ -6,6 +6,14 @@ export default class OldLifeCycle extends Component {
         this.state = {
             n: 0
         };
+        // setInterval(()=>{
+        //     this.setState({
+        //         n:1
+        //     })
+        // },2000)
+        // this.setState({
+        //     n:1
+        // })
         console.log("constructor", "一个新的组件诞生了！！！");
     }
 
