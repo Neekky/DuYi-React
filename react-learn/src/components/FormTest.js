@@ -33,7 +33,10 @@ export default class FormTest extends Component {
         // newPartialState[name] = val;
         // this.setState(newPartialState)
         this.setState({
-            [name]: val
+            [name]: val // 属性表达式
+        },
+        ()=>{
+            console.log(this.state.chooseLoves)
         })
     }
 
@@ -60,6 +63,7 @@ export default class FormTest extends Component {
             <div>
                 <p>
                     <input type="text"
+                        className="123123"
                         name="loginId"
                         value={this.state.loginId}
                         onChange={this.handleChange} />

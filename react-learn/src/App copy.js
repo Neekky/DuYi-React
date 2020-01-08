@@ -61,7 +61,7 @@ export default class App extends Component {
                 }}>
                     <option value="beijing">北京</option>
                     <option value="shanghai">上海</option>
-                    <option value="shenzheng">深证</option>
+                    <option value="shenzheng">深圳</option>
                 </select>
             </div>
         )
