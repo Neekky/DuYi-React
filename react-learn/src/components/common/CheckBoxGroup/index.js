@@ -4,8 +4,6 @@ import React, { Component } from 'react'
  * 一组多选框
  */
 export default class CheckBoxGroup extends Component {
-
-
     handleChange = e => {
         let newArr;
         if (e.target.checked) {
