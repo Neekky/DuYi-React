@@ -42,7 +42,7 @@ export default class ValidationComp extends Component {
         })),
         m: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         score: function (props, propName, componentName) {
-            console.log(props, propName, componentName);
+            console.log("看看score",props, propName, componentName);
             const val = props[propName];
             //必填
             if (val === undefined || val === null) {
@@ -52,10 +52,10 @@ export default class ValidationComp extends Component {
             if (typeof val !== "number") {
                 return new Error(`invalid prop ${propName} in ${componentName}，${propName} is not a number`);
             }
-            const err = PropTypes.number.isRequired(props, propName, componentName);
-            if(err){
-                return err;
-            }
+            // const err = PropTypes.number.isRequired(props, propName, componentName);
+            // if(err){
+            //     return err;
+            // }
             //并且取值范围是0~100
             if (val < 0 || val > 100) {
                 return new Error(`invalid prop ${propName} in ${componentName}，${propName} must is between 0 and 100`);

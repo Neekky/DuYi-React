@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.wrapper{
+  overflow: hidden;
+  height: 33px;
+  padding-top: 15px;
+}
+.tab-bar{
+  white-space: nowrap;
+  overflow: auto;
+  padding-bottom: 10px;
+}
+.tab-bar .tab-item{
+  list-style: none;
+  display: inline-block;
+  margin: 0 16px;
+  font-size: 16px;
+}
+.tab-bar .active{
+  position: relative;
+}
+
+.tab-bar .active .tab-text{
+  font-size: 22px;
+  font-weight: bolder;
+}
+.tab-bar .active .tab-bottom{
+  width: 100%;
+  height: 7px;
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  background-color: #f40;
+  z-index: -2;
+}
+
+.tab-bar .active:after{
+  content: "";
+  clear: both;
+  display: block;
+}

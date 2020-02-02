@@ -1,9 +1,12 @@
 import React from 'react'
 import ValidationComp, { A } from "./ValidationComp"
+import CheckBoxGroup from "./components/common/CheckBoxGroup/Test"
 import Comp from "./Comp"
+// import Demo from "./Demo"
 export default function App() {
     return (
         <div>
+            <CheckBoxGroup></CheckBoxGroup>
             <ValidationComp
                 a={2}
                 d={<Comp />}
@@ -26,8 +29,9 @@ export default function App() {
                 }}
                 k={[{name:"asdf", age:33}]}
                 m={23}
-                score={"33"}
+                score={33}
             />
+            <Comp></Comp>
         </div>
     )
 }

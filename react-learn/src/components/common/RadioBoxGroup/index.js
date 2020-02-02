@@ -1,9 +1,24 @@
 import React, { Component } from 'react'
-
+import types from "../../../utils/commonTypes"
+import PropTypes from "prop-types"
 /**
  * 一组单选框
  */
 export default class RadioBoxGroup extends Component {
+/**
+     * 默认属性值
+     */
+    static defaultProps = {
+        datas: [],
+        value: ""
+    }
+
+    static propTypes = {
+        datas:types.groupDatas.isRequired,
+        name:PropTypes.string.isRequired,
+        onChange: PropTypes.func,
+        value:PropTypes.string.isRequired
+    }
 
 
     handleChange = e => {
