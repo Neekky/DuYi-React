@@ -15,7 +15,6 @@ export default function withLog(Comp, str) {
             console.log(`日志：组件${Comp.name}被销毁了！${Date.now()}`);
         }
 
-
         render() {
             return (
                 <>

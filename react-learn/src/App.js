@@ -2,8 +2,11 @@ import React from 'react'
 import { A, B } from "./components/Comps";
 import withLog from "./HOC/withLog";
 import withLogin from "./HOC/withLogin"
+import Test from "./components/common/Select/Test";
+
 let AComp = withLogin(withLog(A, "abc"));
 let BComp = withLogin(withLog(B, "Bcd"));
+
 export default class App extends React.Component {
     render() {
         return (
@@ -13,6 +16,7 @@ export default class App extends React.Component {
                 <button onClick={() => {
                     this.setState({})
                 }}>点击</button>
+                <Test/>
             </div>
         )
     }
