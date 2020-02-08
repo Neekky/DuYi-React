@@ -19,6 +19,11 @@ ChildA.contextTypes = types;
 
 class ChildB extends React.Component {
 
+    constructor(props,context) {
+        super(props,context); // 将参数的上下文交给父类处理
+        console.log(this.context);
+    }
+
     /**
      * 声明需要使用哪些上下文中的数据
      */
@@ -39,11 +44,10 @@ export default class OldContext extends Component {
     /**
      * 约束上下文中数据的类型
      */
-    static childContextTypes = types
-
-    state = {
-        a: 123,
-        b: "abc"
+    static childContextTypes = {
+        a: PropTypes.number,
+        b: PropTypes.string.isRequired,
+        onChangeA: PropTypes.func
     }
 
     /**
@@ -61,6 +65,13 @@ export default class OldContext extends Component {
             }
         }
     }
+
+    state = {
+        a: 123,
+        b: "abc"
+    }
+
+    
 
     render() {
         return (
