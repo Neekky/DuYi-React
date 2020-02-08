@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { Provider } from "./FormContext"
+import FormInput from "./FormInput"
+import FormButton from "./FormButton"
+import Proptypes from "prop-types"
+
 
 export default class Form extends Component {
   state = {
-    fromData: {}, //表单数据对象
+    formData: {
+
+    }, //表单数据对象
     // 修改formData中的数据
     changeFormData: (name, val) => {
       this.setState({
@@ -12,15 +18,26 @@ export default class Form extends Component {
           [name]: val
         }
       })
+    },
+    submit: () => {
+      this.props.onSubmit && this.props.onSubmit(this.state.formData)
     }
   }
+
+  static propTypes = {
+    onSubmit: Proptypes.func
+  }
+
   render() {
     return (
       <div>
         <Provider value={this.state}>
-
+          {this.props.children}
         </Provider>
       </div>
     )
   }
 }
+
+Form.Input = FormInput;
+Form.Button = FormButton;
