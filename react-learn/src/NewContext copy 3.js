@@ -67,6 +67,8 @@ export default class NewContext extends Component {
         return (
             <ctx1.Provider value={this.state}>
                 <div>
+                    根组件自己的数据
+                    {this.state.a}
                     <ChildA />
 
                     <button onClick={() => {
