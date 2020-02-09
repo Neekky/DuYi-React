@@ -12,8 +12,8 @@ function MoveDiv(props) {
             height: 100,
             background: "#008c8c",
             position: "absolute",
-            left: props.x - 50,
-            top: props.y - 50
+            left: props.x - 50 < 0 ? 0 : props.x - 50,
+            top: props.y - 50 < 0 ? 0 : props.y - 50
         }}>
 
         </div>);

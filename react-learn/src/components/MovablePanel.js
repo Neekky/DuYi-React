@@ -27,7 +27,7 @@ export default class MovablePanel extends PureComponent {
                 <div style={{
                     width: 100,
                     height: 100,
-                    background: "#008c8c",
+                    background: "#001c8c",
                     position: "absolute",
                     left: this.state.x - 50,
                     top: this.state.y - 50
