@@ -1,4 +1,5 @@
 import React from 'react'
+import ErrorBound from "./components/common/ErrorBound"
 
 function Comp1() {
     return <div style={{
@@ -40,7 +41,9 @@ function Comp3() {
 
 export default function App() {
     return <div>
-        <Comp1 />
+        <ErrorBound>
+            <Comp1 />
+        </ErrorBound>
         <Comp3 />
     </div>
 }

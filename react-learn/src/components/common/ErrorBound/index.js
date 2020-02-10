@@ -5,7 +5,7 @@ export default class ErrorBound extends PureComponent {
     state = {
         hasError: false
     }
-
+    
     static getDerivedStateFromError(error) {
         console.log("发生错误了");
         return {
@@ -16,8 +16,6 @@ export default class ErrorBound extends PureComponent {
     componentDidCatch(error, info) {
         console.log("记录错误信息");
     }
-
-
 
     render() {
         // setTimeout(() => {
