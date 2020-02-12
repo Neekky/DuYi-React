@@ -29,7 +29,7 @@ class CompA extends Component {
 
 export default class App extends Component {
     state = {
-        arr: [<CompA key={1} />, <CompA key={2} />],
+        arr: [<CompA />, <CompA />],
         nextId: 3
     }
     render() {
@@ -39,7 +39,7 @@ export default class App extends Component {
                 <button onClick={() => {
                     this.setState({
                         arr: [
-                            <CompA key={this.state.nextId} />,
+                            <CompA />,
                             ...this.state.arr
                         ],
                         nextId: this.state.nextId + 1

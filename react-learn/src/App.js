@@ -31,7 +31,7 @@ export default class App extends Component {
     state = {
         isVisible: false
     }
-    render() {
+    render() { 
         if (this.state.isVisible) {
             return <div>
                 <h1>标题</h1>
