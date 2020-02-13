@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 window.arr = [];
 
 export default function App() {
+    console.log("xuanran")
     const [visible, setVisible] = useState(true);
     const [n, setN] = useState(0);
     window.arr.push(setN);

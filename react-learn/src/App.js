@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-
 export default function App() {
     console.log("App render")
     const [n, setN] = useState(0); //使用一个状态，该状态的默认值是0
