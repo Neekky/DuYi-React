@@ -15,7 +15,7 @@ export default function App() {
         return () => { //函数卸载时运行
             clearInterval(timer);
         }
-    }, [])
+    }, [n])
     return (
         <div>
             <h1>{n}</h1>

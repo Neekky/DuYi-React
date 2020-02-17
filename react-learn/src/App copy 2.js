@@ -70,11 +70,9 @@ export default function App() {
                     </div>
                 )
             }
-
             <button onClick={() => {
                 setVisible(!visible);
             }}>显示/隐藏</button>
-
         </div>
     )
 }
