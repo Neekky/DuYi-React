@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import StudentList from "../StudentList"
 import { getStudents } from "../../services/student"
-import Pager from "../common/"
+import Pager from "../common/Pager"
 
 export default function StudentContainer() {
   const [students, setStudents] = useState([])
-  const [Page, setPage] = useState(1)
+  const [page, setPage] = useState(1)
+  const [limit, setLimit] = useState(10)
+  const [total, setTotal] = useState(0)
+  const [panelNumber, setPanelNumber] = useState(5)
   useEffect(() => {
     (async function () {
-      const resp = await getStudents(Page,10);
+      const resp = await getStudents(page,limit);
       setStudents(resp.findByPage);
-      console.log(resp)
+      setTotal(resp.cont);
     })()
-  }, [Page])
+  }, [page,limit])
   return (
     <div>
       <StudentList stus={students} />
-      <input type="number" value={Page} onChange={(e)=>{
-        setPage(parseInt(e.target.value))
-      }} />
+      <Pager 
+        current={page} 
+        limit={limit}
+        total={total}
+        panelNumber={panelNumber}
+        onPageChange={(target)=>{
+          setPage(target)
+        }}
+      />
     </div>
   )
 }
