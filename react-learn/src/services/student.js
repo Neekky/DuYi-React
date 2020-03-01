@@ -15,7 +15,7 @@ export async function getStudents(page = 1, limit = 10) {
 
 /**
  * 如果传递了key属性（key有值），则按照关键字和性别进行搜索
- * 如果key没有值，则对所有学生进行分页
+ * 如果key没有值，则对所有学生进行分页ss
  * @param {*} param0 
  */
 export async function searchStudents(
