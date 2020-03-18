@@ -6,7 +6,7 @@ export default function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/login" exact component={Login} />
+                <Route path="/login/:id/index" exact component={Login} />
                 <Route path="/" component={Admin} />
             </Switch>
         </Router>
