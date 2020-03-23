@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import loginInfo from "./loginInfo"
 
 export default function ProtectedRoute({ component: Component, children, render, ...rest }) {
-
+    console.log('是你吗',children, render, rest)
     return <Route {...rest}
         render={values => {
             if (loginInfo.isLogin) {
@@ -18,7 +18,7 @@ export default function ProtectedRoute({ component: Component, children, render,
 
                 return <Redirect to={{
                     pathname: "/login",
-                    state: values.location.pathname
+                    state: values.location.pathname,
                 }} />
             }
         }}

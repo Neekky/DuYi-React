@@ -17,7 +17,7 @@ export default function App() {
                 <div>
                     <Switch>
                         <Route path="/login" component={Login} />
-                        <ProtectedRoute path="/personal" component={Personal}/>
+                        <ProtectedRoute path="/personal" component={Personal}>123</ProtectedRoute>
                         {/* render和children的区别：render是匹配后才会运行，children无论是否匹配都会运行 */}
                         {/* <Route path="/personal" render={ values => {
                             console.log(values)

@@ -23,6 +23,8 @@ export default function Login(props) {
                 //     props.history.push("/");
                 // }
             }}>登录</button>
+                {props.children}
+
         </div>
     )
 }
