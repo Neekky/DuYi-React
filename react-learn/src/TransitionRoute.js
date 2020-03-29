@@ -8,10 +8,11 @@ export default function TransitionRoute(props) {
     return (
         <Route {...rest} >
             {({ match }) => {
+                console.log(match,'match')
                 return <CSSTransition
                     in={match ? true : false}
-                    timeout={500}
-                    classNames={{
+                    timeout={10000}
+                    classNames={{ 
                         enter: "animated fast fadeInRight",
                         exit: "animated fast fadeOutLeft"
                     }}
