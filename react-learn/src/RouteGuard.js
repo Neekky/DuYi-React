@@ -11,11 +11,12 @@ class _GuardHelper extends Component {
             prevLoaction = this.props.location;
             location = newLocation;
             action = ac;
-            return "";
+            return "哈哈";
         });
 
         //添加一个监听器
         this.unListen = this.props.history.listen((location, action) => {
+            console.log(action, location)
             if (this.props.onChange) {
                 const prevLoaction = this.props.location;
                 this.props.onChange(prevLoaction, location, action, this.unListen);
@@ -43,17 +44,20 @@ class RouteGuard extends Component {
         if (this.props.onBeforeChange) {
             this.props.onBeforeChange(prevLoaction, location, action, commit, unBlock);
         }
-        else{
+        else {
             commit(true);
         }
     }
 
     render() {
-        return <Router getUserConfirmation={this.handleConfirm}>
-            <GuardHelper onChange={this.props.onChange} />
-            {this.props.children}
-        </Router>;
+        return (
+            <Router getUserConfirmation={this.handleConfirm}>
+                <GuardHelper onChange={this.props.onChange} />
+                {this.props.children}
+            </Router>
+        );
     }
 }
 
 export default RouteGuard;
+

@@ -2,8 +2,15 @@ import React from 'react'
 import { Route, Link } from "react-router-dom"
 import RouteGuard from './RouteGuard';
 
-function Page1() {
-    return <h1>Page1</h1>
+function Page1(props) {
+    return (
+        <div>
+            <h1>Page1</h1>
+            <div onClick={() => { props.history.go(-1) }}>
+                点击
+            </div>
+        </div>
+    )
 }
 
 function Page2() {
