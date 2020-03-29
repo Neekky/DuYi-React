@@ -6,6 +6,7 @@ export default function ProtectedRoute({ component: Component, children, render,
     console.log('是你吗',children, render, rest)
     return <Route {...rest}
         render={values => {
+            console.log(values,'查看values')
             if (loginInfo.isLogin) {
                 //可以正常展示页面
                 return <Component />
