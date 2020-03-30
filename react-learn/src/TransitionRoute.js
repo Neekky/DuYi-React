@@ -8,18 +8,22 @@ export default function TransitionRoute(props) {
     return (
         <Route {...rest} >
             {({ match }) => {
-                console.log(match,'match')
                 return <CSSTransition
                     in={match ? true : false}
-                    timeout={10000}
+                    timeout={500}
                     classNames={{ 
                         enter: "animated fast fadeInRight",
                         exit: "animated fast fadeOutLeft"
                     }}
-                    mountOnEnter={true}
+                    // mountOnEnter={true}
                     unmountOnExit={true}
                 >
-                    <Component />
+                    {
+                        state => {
+                            console.log(state,'状态')
+                            return <Component />
+                        }
+                    }
                 </CSSTransition>
             }}
         </Route>
