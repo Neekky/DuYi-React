@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="img_list">
+        <li></li>
+    </ul>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+<script>
+    var width = $('#img_list li').width()
+    var height = $('#img_list li').height()
+    var canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    var context = canvas.getContext("2d");
+    context.rect(0, 0, canvas.width, canvas.height);
+    context.fill();
+
+    var myImage = new Image();
+    myImage.setAttribute('crossOrigin', 'anonymous')
+    myImage.src = image;
+    myImage.onload = function() {
+        context.drawImage(myImage, 0, 0, width, height);
+        var myImage2 = new Image();
+        myImage2.setAttribute('crossOrigin', 'anonymous')
+        myImage2.src = qrcode;
+        myImage2.onload = function() {
+            var x = width * 0.205
+            var y = height * 3.39
+            var w_ = height / 8
+            var h_ = height / 8
+            context.drawImage(myImage2, x, y, w_, h_);
+        }
+    }
+
+    myImage.setAttribute('crossOrigin', 'anonymous')
+
+    var base64 = canvas.toDataURL("image/png");
+    var img = document.getElementById('avatar');
+    img.setAttribute('src', base64)
+
+    $("#qrcode").qrcode({
+        render: "canvas",
+        text: val, // 二维码携带的参数
+        width: "180", // 二维码的宽度 
+        height: "180", // 二维码的高度 
+        background: "#ffffff", // 二维码的后景色 
+        foreground: "#000000", // 二维码的前景色 
+        quiet: 1, // 边距
+        mode: 4,
+        mSize: 11 * 0.01,
+        mPosX: 50 * 0.01,
+        mPosY: 50 * 0.01,
+        image: $('#logo')[0] // 二维码中间的图片 
+    });
+</script>
+
+</html>

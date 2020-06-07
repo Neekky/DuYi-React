@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HanppyRoom</title>
+    <script>
+        var url = "ws://" + window.location.host + "/page_room/";
+        var ws = null;
+        //加入聊天室
+        function joinRoom() {
+            if (ws) {
+                alert("你已经在聊天室，不能再加入");
+                return;
+            }
+            var username = document.getElementById("user").value;
+            ws = new WebSocket(url + username);
+            //与服务端建立连接触发
+            ws.onopen = function () {
+                console.log("与服务器成功建立连接")
+            };
+            //服务端推送消息触发
+            ws.onmessage = function (ev) {
+                talking(ev.data);
+            };
+
+            //发生错误触发
+            ws.onerror = function () {
+                console.log("连接错误")
+            };
+            //正常关闭触发
+            ws.onclose = function () {
+                console.log("连接关闭");
+            };
+        }
+
+        //退出聊天室
+        function exitRoom() {
+            closeWebSocket();
+        }
+
+        function sendMsg() {
+            if (!ws) {
+                alert("你已掉线，请重新加入");
+                return;
+            }
+            //消息发送
+            ws.send(document.getElementById("sendMsg").value);
+            document.getElementById("sendMsg").value = "";
+
+
+        }
+
+        function closeWebSocket() {
+            if (ws) {
+                ws.close();
+                ws = null;
+            }
+        }
+
+        function talking(content) {
+            document.getElementById("content").append(content + "\r\n");
+        }
+
+        function isPrime(number) {
+            // If your browser doesn't support the method Number.isInteger of ECMAScript 6,
+            // you can implement your own pretty easily
+            if (typeof number !== 'number' || !Number.isInteger(number)) {
+                // Alternatively you can throw an error.
+                return false;
+            }
+            if (number < 2) {
+                return false;
+            }
+            if (number === 2) {
+                return true;
+            } else if (number % 2 === 0) {
+                return false;
+            }
+            var squareRoot = Math.sqrt(number);
+            for (var i = 3; i <= squareRoot; i += 2) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div
+        style="text-align: center;background-color: rgba(129,86,255,0.35);margin:0 auto;border:1px solid #000;width:600px;height:650px">
+        <br>欢迎使用<strong>陈本布衣</strong>牌极简聊天室：<br /><br />
+        <textarea id="content" cols="60" rows="30" readonly="readonly"></textarea><br>
+        <input type="text" id="sendMsg">
+        <button type="button" onclick="sendMsg()">发送消息</button>
+        <br /><br />
+        用户：<input type="text" id="user">
+        <button onclick="joinRoom()">加入群聊</button>
+        <button onclick="exitRoom()">退出群聊</button>
+    </div>
+</body>
+
+</html>
