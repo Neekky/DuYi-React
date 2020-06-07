@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom"
 import "./App.css"
 import Page1 from "./Page1"
-import Page2 from "./Page2"
+import Page2 from "./Page2 copy"
 
 export default function App() {
     return (
