@@ -18,6 +18,16 @@ function Page2(props) {
 }
 
 export default function App() {
+    console.log(
+        <Router>
+            <Route path="/page1" component={Page1} />
+            <Route path="/page2" component={Page2} />
+            <div className="nav">
+                <NavLink to="/page1">页面1</NavLink>
+                <NavLink to="/page2">页面2</NavLink>
+            </div>
+        </Router>
+    )
     return (
         <Router>
             <Route path="/page1" component={Page1} />
