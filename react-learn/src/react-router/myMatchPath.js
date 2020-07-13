@@ -26,7 +26,7 @@ export default function pathMatch(path, url, options) {
     if (!params) {
         return null;
     }
-    console.log(result)
+    console.log(result,'看看结果是啥')
     return {
         isExact: url === result[0],
         params,
@@ -68,4 +68,4 @@ function getParams(groups, keys) {
     return obj;
 }
 
-console.log(pathMatch('/home/:id', '/home/321123'))
+console.log(pathMatch('/home/:id/:name', '/home/321123/peter'))
