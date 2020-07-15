@@ -49,6 +49,7 @@ export function createStore (reducer, defaultState) {
         return currentState;
     };
 
+    // 发布订阅模式
     function subscribe(listener) {
         listeners.push(listener);
         let isRemove = false;

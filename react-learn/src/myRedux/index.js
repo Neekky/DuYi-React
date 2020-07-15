@@ -6,21 +6,15 @@ import uuid from 'uuid';
 
 const store = createStore(reducer);
 
-const unListen = store.subscribe(() => {
-    console.log(store.getState(),'unListen');
+const unListen1 = store.subscribe(() => {
+    console.log(store.getState(),'订阅者1');
+})
+
+const unListen2 = store.subscribe(() => {
+    console.log(store.getState(),'订阅者2');
 })
 
 store.dispatch(usersAction.createAddUserAction({id: uuid(), name: "韭菜", age: 22 }))
+unListen1()
 store.dispatch(loginUserAction.createSetLoginUserAction({id: uuid(), name: "韭菜", age: 22 }))
 console.log(store.getState());
-// function myCreateStore(reducer, store) {
-//     let myStore = store;
-//     return {
-//         dispatch: function (action) {
-//             myStore = reducer(myStore, action);
-//         },
-//         getState: function () {
-//             console.log( );
-//         }
-//     }
-// }
