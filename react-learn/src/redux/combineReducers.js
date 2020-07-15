@@ -40,7 +40,7 @@ export default function (reducers) {
         for (const key in reducers) {
             if (reducers.hasOwnProperty(key)) {
                 const reducer = reducers[key];
-                newState[key] = reducer(state[key], action);
+                newState[key] = reducer( [key], action);
             }
         }
         return newState; //返回状态

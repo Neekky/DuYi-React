@@ -1,6 +1,6 @@
 import loginUserReducer from './loginUser';
 import usersReducer from './users';
-import { combineReducers } from "redux"
+import { combineReducers } from "../myCombineReducers";
 
 // export default (state = { }, action) => {
 //     const newState = {
