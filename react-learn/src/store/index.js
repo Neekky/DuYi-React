@@ -2,7 +2,6 @@ import { createStore, bindActionCreators } from "../redux";
 import reducer from "./reducer"
 import { createAddUserAction, createDeleteUserAction } from "./action/usersAction"
 
-
 const store = createStore(reducer);
 
 const actionCreators = {
