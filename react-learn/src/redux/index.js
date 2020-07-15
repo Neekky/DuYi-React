@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 import reducer from "./reducer"
 import { createAddUserAction } from "./action/usersAction"
-import uuid from 'uuid'
+import uuid from 'uuid';
 
 const store = createStore(reducer);
 
