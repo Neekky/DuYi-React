@@ -40,7 +40,6 @@ export function combineReducers(reducers) {
     return function (state = {}, action) {
         const newState = {}; //要返回的新的状态
         for (const key in reducers) {
-            console.log(key)
             if (reducers.hasOwnProperty(key)) {
                 const reducer = reducers[key];
                 newState[key] = reducer( state[key], action);
