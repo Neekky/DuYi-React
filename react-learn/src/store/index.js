@@ -58,6 +58,7 @@ const logger2 = store => next => action => {
 
 //方式2：
 const store = applyMiddleware(logger1, logger2)(createStore)(reducer)
+// const store = createStore(reducer);
 
 const actionCreators = {
     addUser: createAddUserAction,
