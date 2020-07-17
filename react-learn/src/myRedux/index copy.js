@@ -6,9 +6,22 @@ import reducer from "./reducer";
 import * as loginUserAction from "./action/loginUserAction";
 import * as usersAction from "./action/usersAction";
 import uuid from 'uuid';
-import { createLogger } from 'redux-logger';
 
-const logger3 = createLogger({ collapsed: false, duration: true })
+// const logger1 = store => next => action => {
+//     console.log("中间件1")
+//     console.log("旧数据", store.getState());
+//     console.log("action", action);
+//     next(action);
+//     console.log("新数据", store.getState());
+// }
+
+// const logger2 = store => next => action => {
+//     console.log("中间件2")
+//     console.log("旧数据", store.getState());
+//     console.log("action", action);
+//     next(action);
+//     console.log("新数据", store.getState());
+// }
 
 function logger1(store) {
     return function (next) {
@@ -29,7 +42,7 @@ function logger2(store) {
 }
 
 // 方式一
-const store = createStore(reducer, applyMiddleware(logger1, logger2, logger3));
+const store = createStore(reducer, applyMiddleware(logger1, logger2));
 
 // 方式二
 // const store = applyMiddleware(logger1, logger2)(createStore)(reducer)

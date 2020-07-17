@@ -25,7 +25,7 @@ function logger1(store) {
 function logger2(store) {
     return function (next) {
         //下面返回的函数，是最终要应用的dispatch
-        return function (action) {
+        return function (action) { 
             console.log("中间件2")
             console.log("旧数据", store.getState());
             console.log("action", action);
