@@ -25,3 +25,22 @@ export default function (...middlewares) {
         }
     }
 }
+
+// function a(next) {
+//     console.log('1')
+//     next()
+// }
+// function b(next) {
+//     console.log('2')
+//     next()
+// }
+// function c(next) {
+//     console.log('3')
+//     next()
+// }
+// function d(next) {
+//     console.log('4')
+//     next()
+// }
+
+// let arr = [a, b, c, d]

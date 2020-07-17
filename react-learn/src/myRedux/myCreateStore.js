@@ -22,7 +22,20 @@ function getRandomString(length) {
  * @param {*} reducer 接收reducer处理器
  * @param {*} defaultState 初始化的状态值
  */
-export function createStore (reducer, defaultState) {
+export function createStore(reducer, defaultState, enhancer) {
+    // 判断是否传入defaultState
+    if (typeof defaultState === 'function' && typeof enhancer === 'undefined') {
+        enhancer = defaultState
+        defaultState = undefined
+    }
+    // 判断是否传入enhancer且为函数
+    if (typeof enhancer !== 'undefined') {
+        if (typeof enhancer !== 'function') {
+            throw new Error('Expected the enhancer to be a function.')
+        }
+        return enhancer(createStore)(reducer, defaultState)
+    }
+
     let currentReducer = reducer, //当前使用的reducer
         currentState = defaultState; //当前仓库中的状态
 
@@ -53,8 +66,8 @@ export function createStore (reducer, defaultState) {
     function subscribe(listener) {
         listeners.push(listener);
         let isRemove = false;
-        return function() {
-            if(isRemove) return;
+        return function () {
+            if (isRemove) return;
 
             //将listener从数组中移除
             const index = listeners.indexOf(listener);
