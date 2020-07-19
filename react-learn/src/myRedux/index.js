@@ -30,7 +30,7 @@ function logger2(store) {
 }
 
 // 方式一
-const store = createStore(reducer, applyMiddleware(thunk, logger3 ));
+const store = createStore(reducer, applyMiddleware(logger3 ));
 
 // 方式二
 // const store = applyMiddleware(logger1, logger2)(createStore)(reducer)
@@ -42,9 +42,9 @@ const boundUserAction = bindActionCreators({ ...usersAction, ...loginUserAction 
 //     console.log(store.getState(), '订阅者1');
 // })
 
-boundUserAction.createAddUserAction([{ id: uuid(), name: "韭菜", age: 22 }]) 
+// boundUserAction.createAddUserAction([{ id: uuid(), name: "韭菜", age: 22 }]) 
 // unListen1();
 // boundUserAction.createSetLoginUserAction({ id: uuid(), name: "韭菜", age: 22 });
-boundUserAction.createSetLoginUserAction({ id: uuid(), name: "大庄", age: 25 });
+// boundUserAction.createSetLoginUserAction({ id: uuid(), name: "大庄", age: 25 });
 
 export default store;
