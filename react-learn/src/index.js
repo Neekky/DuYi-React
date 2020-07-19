@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import "./myRedux/index";
-import "./myRedux/test";
+// import "./myRedux/index";
+// import "./myRedux/test";
+import "./studentAdmSys/test";
 
 // import "./store/index";
 
