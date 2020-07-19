@@ -60,7 +60,7 @@ export default function createStore(reducer, defaultState, enhanced) {
         }
     }
 
-    //创建仓库时，需要分发一次初始的action
+    //创建仓库时，需要分发一次初始的action，完成初始状态的赋值
     dispatch({
         type: ActionTypes.INIT()
     })
