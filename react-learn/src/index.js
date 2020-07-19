@@ -1,6 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from "./App"
-import "./store/test"
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./myRedux/index";
+import "./myRedux/test";
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+// import "./store/index";
+
+ReactDOM.render(<App />, document.getElementById("root"));
