@@ -1,4 +1,6 @@
 import store from "./index"
-import { fetchStudents } from "./action/student/searchResult"
+import { fetchUsers } from "./action/usersAction"
 
-store.dispatch(fetchStudents(store.getState().students.condition))
+store.dispatch(fetchUsers()).then(()=>{
+    console.log("加载完成")
+});

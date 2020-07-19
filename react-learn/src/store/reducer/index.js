@@ -1,7 +1,16 @@
-// 创建一个唯一的reducer
-import students from "./student"
-import { combineReducers } from "redux"
+import loginUserReducer from "./loginUser"
+import usersReducer from './users'
+import { combineReducers } from "../../redux"
+
+// export default (state = {}, action) => {
+//     const newState = {
+//         loginUser: loginUserReducer(state.loginUser, action),
+//         users: usersReducer(state.users, action)
+//     };
+//     return newState;
+// }
 
 export default combineReducers({
-    students
+    loginUser: loginUserReducer,
+    users: usersReducer
 })
