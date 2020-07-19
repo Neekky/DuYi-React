@@ -1,7 +1,7 @@
 import { fetchUsers } from './action/usersAction';
 import store from './index';
 
-store.dispatch(fetchUsers()); // 正在加载
+console.log(store.dispatch(fetchUsers()).then(()=>console.log('加载完成'))) ; // 正在加载
 
 
 

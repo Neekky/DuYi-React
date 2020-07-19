@@ -14,6 +14,9 @@ export function applyMiddleware(...middlewares) {
 
             const simpleStore = {
                 getState: store.getState,
+                // 这里不能写成dispatch: dispatch，否则一直是上面那个报错的dispatch
+                // 也不能写成store.dispatch，否则一直是最原始的dispatch
+                // 写成函数形式是为了保证引用地址一致
                 dispatch: (...args) => dispatch(...args)
             }
             

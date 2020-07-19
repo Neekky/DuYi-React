@@ -5,8 +5,11 @@ export function compose(...funcs) {
         //要组合的函数只有一个
         return funcs[0];
     }
+
+    // redux官方写法，在下面附有步骤分析，非常巧妙
     // return funcs.reduce((a, b) => (...args) => a(b(...args)));
 
+    // 这是可读性好一些的写法，和上面代码功能一样
     return function (...args) {
         let lastReturn = null; // 记录上一个函数返回的值
         for (let i = funcs.length - 1; i >= 0; i--) {

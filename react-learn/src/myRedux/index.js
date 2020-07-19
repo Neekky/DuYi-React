@@ -7,7 +7,8 @@ import * as loginUserAction from "./action/loginUserAction";
 import * as usersAction from "./action/usersAction";
 import uuid from 'uuid';
 import { createLogger } from 'redux-logger';
-import thunk from 'redux-thunk'; 
+import thunk from '../myReduxThunk'; 
+// import thunk from 'redux-thunk'; 
 
 const logger3 = createLogger({ collapsed: false, duration: true })
 
@@ -30,7 +31,7 @@ function logger2(store) {
 }
 
 // 方式一
-const store = createStore(reducer, applyMiddleware(logger3 ));
+const store = createStore(reducer, applyMiddleware(thunk, logger3 ));
 
 // 方式二
 // const store = applyMiddleware(logger1, logger2)(createStore)(reducer)
