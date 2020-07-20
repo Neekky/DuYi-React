@@ -3,7 +3,9 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducer';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import promise from '../../myReduxPromise';
+// import promise from 'redux-promise';
 
-const store = createStore(reducers, applyMiddleware(thunk, logger));
+const store = createStore(reducers, applyMiddleware(promise, logger));
 
 export default store;

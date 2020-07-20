@@ -42,7 +42,7 @@ export function createStore(reducer, defaultState, enhancer) {
     const listeners = [];  //记录所有的监听器（订阅者）
 
     function dispatch(action) {
-        //验证action
+        //验证action是否是平面对象
         if (!isPlainObject(action)) {
             throw new TypeError("action must be a plain object");
         }

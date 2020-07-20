@@ -12,4 +12,4 @@ console.log(store.getState(), '123123');
 
 // store.dispatch(setIsLoading(true));
 
-store.dispatch(fetchStudents());
+store.dispatch(fetchStudents(store.getState().students));

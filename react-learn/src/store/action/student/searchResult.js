@@ -50,7 +50,6 @@ export function setIsLoading(isLoading) {
 //     return setStudentsAndTotal(resp.datas, resp.cont);
 // }
 
-
 export async function fetchStudents(condition) {
     return {
         type: actionTypes.setStudentsAndTotal,
