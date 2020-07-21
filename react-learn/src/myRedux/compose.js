@@ -43,3 +43,29 @@ export function compose(...funcs) {
  * 函数执行变成如下代码
  * (...args) => func1(func2(func3(...args)))
  */
+
+
+
+function func1 (next) {
+    return function (action) {
+        action = action * 2
+        next(action);
+    }
+}
+ 
+function func2 (next) {
+    return function (action) {
+        action = action + 20
+        next(action);
+    }
+}
+ 
+function func3 (next) {
+    return function (action) {
+        action = action / 4
+        next(action);
+    }
+}
+
+
+let comp = [func1, func2, func3].reduce((a,b)=>(...args) => a(b(...args)))((action)=>console.log(action))
