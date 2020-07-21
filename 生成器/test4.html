@@ -42,7 +42,7 @@
                 const result = generator.next(nextValue);
                 if (result.done) {
                     //迭代结束了
-                    return; 
+                    return;
                 }
                 const value = result.value; //拿到迭代的数据
                 if (typeof value.then === "function") {
@@ -54,7 +54,11 @@
             }
         }
 
-        run(task);
+        // run(task);
+
+        let gen = task()
+        let result = gen.next()
+        result.value.then(res => gen.next(res).value).then(res => gen.next(res))
     </script>
 </body>
 
