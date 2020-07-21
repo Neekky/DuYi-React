@@ -7,7 +7,7 @@ export const actionTypes = {
 
 export function fetchStudents(){
     return {
-        type: actionTypes.fetchStudents
+        type: actionTypes.fetchStudents,
     }
 }
 

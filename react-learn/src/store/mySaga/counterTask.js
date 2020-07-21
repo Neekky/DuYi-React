@@ -1,12 +1,16 @@
-import { takeEvery } from "redux-saga/effects"
-import { actionTypes } from "../action/counter"
+import { takeEvery, delay, put } from "redux-saga/effects"
+import { actionTypes, increase, decrease } from "../action/counter"
 
 function* counterTask1() {
-    yield console.log('counterTask1')
+    yield delay(2000);
+    yield console.log('counterTask1');
+    yield put(increase());
 }
 
 function* counterTask2() {
-    yield console.log('counterTask2')
+    yield delay(2000);
+    yield console.log('counterTask2');
+    yield put(decrease());
 }
 
 export default function* () {
