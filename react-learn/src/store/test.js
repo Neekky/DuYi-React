@@ -1,5 +1,5 @@
 import store from "./index"
-import { increase, decrease, asyncIncrease, autoIncrease, stopAutoIncrease, asyncDecrease } from "./action/counter"
+import { increase, decrease, asyncIncrease, autoIncrease, stopAutoIncrease, asyncDecrease, add } from "./action/counter"
 import { fetchStudents } from './action/student/searchResult'
 
 window.autoIncrease = function () {
@@ -28,4 +28,8 @@ window.asyncIncrease = function () {
 
 window.asyncDecrease = function () {
     store.dispatch(asyncDecrease());
+}
+
+window.add = function (n) {
+    store.dispatch(add(n));
 }

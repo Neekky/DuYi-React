@@ -1,5 +1,5 @@
-import { delay, put, cancel, fork, take, takeLatest, cancelled, race, call } from "redux-saga/effects"
-import { actionTypes, increase, decrease } from "../action/counter"
+import { race, call, put } from "redux-saga/effects"
+import { increase, decrease } from "../action/counter"
 
 // 异步的得到一个action
 function asyncAction() {
@@ -18,8 +18,10 @@ function asyncAction() {
 
 export default function* () {
     var result = yield race({
-        action1: call(asyncAction),
-        action2: call(asyncAction)
+        action1: yield call(asyncAction),
+        action2: yield call(asyncAction)
     })
     console.log("看看你是啥", result);
+    let action = Object.entries(result)[0][1];
+    yield put(action)
 }

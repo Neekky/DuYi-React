@@ -1,32 +1,25 @@
+import { createActions } from 'redux-actions';
+
 export const actionTypes = {
-    increase: Symbol("increase"),
-    decrease: Symbol("decrease"),
-    asyncIncrease: Symbol("async-increase"), //异步增加
-    asyncDecrease: Symbol("async-decrease"),
-    autoIncrease: Symbol("auto-increase"), //自动增加
-    stopAutoIncrease: Symbol("stop-auto-increase") //停止自动增加
+    increase: "INCREASE",
+    decrease: "DECREASE",
+    asyncIncrease: "ASYNC_INCREASE", //异步增加
+    asyncDecrease: "ASYNC_DECREASE",
+    autoIncrease: "AUTO_INCREASE", //自动增加
+    stopAutoIncrease: "STOP_AUTO_INCREASE", //停止自动增加
+    add: "ADD",
 }
 
-export function increase() {
-    return { type: actionTypes.increase }
-}
+const actions = createActions({
+    INCREASE: null,
+    DECREASE: null,
+    ASYNC_INCREASE: null,
+    ASYNC_DECREASE: null,
+    AUTO_INCREASE: null,
+    STOP_AUTO_INCREASE: null,
+    ADD: n => n,
+});
 
-export function decrease() {
-    return { type: actionTypes.decrease }
-}
+console.log(actions);
 
-export function asyncIncrease() {
-    return { type: actionTypes.asyncIncrease }
-}
-
-export function asyncDecrease() {
-    return { type: actionTypes.asyncDecrease }
-}
-
-export function autoIncrease() {
-    return { type: actionTypes.autoIncrease }
-}
-
-export function stopAutoIncrease() {
-    return { type: actionTypes.stopAutoIncrease }
-}
+export const {increase,decrease,asyncIncrease,asyncDecrease,autoIncrease,stopAutoIncrease,add} = actions;
