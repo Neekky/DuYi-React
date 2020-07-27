@@ -1,18 +1,8 @@
-import { createActions } from 'redux-actions';
-
-export const actionTypes = {
-    increase: "INCREASE",
-    decrease: "DECREASE",
-    asyncIncrease: "ASYNC_INCREASE", //异步增加
-    asyncDecrease: "ASYNC_DECREASE",
-    autoIncrease: "AUTO_INCREASE", //自动增加
-    stopAutoIncrease: "STOP_AUTO_INCREASE", //停止自动增加
-    add: "ADD",
-}
+import { createActions, handleActions, combineActions } from 'redux-actions';
 
 const actions = createActions({
-    INCREASE: null,
-    DECREASE: null,
+    INCREASE: () => 1,
+    DECREASE: () => -1,
     ASYNC_INCREASE: null,
     ASYNC_DECREASE: null,
     AUTO_INCREASE: null,
@@ -22,4 +12,10 @@ const actions = createActions({
 
 console.log(actions);
 
-export const {increase,decrease,asyncIncrease,asyncDecrease,autoIncrease,stopAutoIncrease,add} = actions;
+export const { increase, decrease, asyncIncrease, asyncDecrease, autoIncrease, stopAutoIncrease, add } = actions;
+
+const fn = combineActions(increase, decrease, add);
+
+export default handleActions({
+    [fn]: (state, action) => state + action.payload,
+}, 10)
