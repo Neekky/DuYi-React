@@ -8,9 +8,9 @@ import rootSaga from "./saga"
 const sagaMid = createSagaMiddleware(); //创建一个saga的中间件
 
 const store = createStore(reducer,
-    applyMiddleware(sagaMid, logger)
+    applyMiddleware(sagaMid, /*logger*/)
 )
-
+console.log(store.getState(),'store shape')
 sagaMid.run(rootSaga); //启动saga任务
 
 export default store;

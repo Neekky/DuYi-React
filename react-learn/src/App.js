@@ -1,12 +1,13 @@
 import React from 'react'
-import { Provider } from "react-redux"
+import { Provider } from "./myReactRedux"
 import store from "./store"
-import Counter from "./components/Counter"
+import StudentSearch from "./components/studentsSearch"
+// import Counter from "./components/Counter"
 
 export default function App() {
     return (
         <Provider store={store}>
-            <Counter abc={123}/>
+            <StudentSearch/>
         </Provider>
     )
 }
