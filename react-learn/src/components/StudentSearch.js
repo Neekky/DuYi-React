@@ -35,6 +35,7 @@ const Table = connect(mapStateToProps)(StudentTable)
 //连接 Pager
 function selectorFactory(dispatch) {
     return function (state, ownProps) {
+        console.log(state,ownProps,'ownProps')
         return {
             current: state.students.condition.page,
             total: state.students.result.total,
@@ -67,7 +68,7 @@ export default class StudentSearch extends React.Component {
         return <>
             <SearchBar />
             <Table />
-            <PagerTemp />
+            <PagerTemp abc="123" />
             <LoadingTemp />
         </>
     }
