@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleware from "redux-saga";
 
 /**
  * 创建dva对象的函数
@@ -16,6 +17,8 @@ export default function (opts = {}) {
         _router: null, // 用于记录路由函数
         start
     };
+
+    let sagaMid; // saga中间件
 
     /**
      * 根据模型对象定义一个模型
@@ -53,7 +56,8 @@ export default function (opts = {}) {
      * @param {*} params 
      */
     function getMiddlewares(middleware) {
-        return composeWithDevTools(applyMiddleware());
+        sagaMid = createSagaMiddleware();
+        return composeWithDevTools(applyMiddleware(sagaMid));
     }
 
     /**
@@ -84,7 +88,13 @@ export default function (opts = {}) {
             rootReducerObj[obj.name] = obj.reducer;
         }
 
-        rootReducerObj = {...rootReducerObj, ...getExtraReducers()};
+        rootReducerObj = { ...rootReducerObj, ...getExtraReducers() };
+
+        // 运行saga
+        sagaMid.run(function* () {
+            
+        });
+
         // 根据模型，得到一个根的reducer
         return createStore(combineReducers(rootReducerObj), getMiddlewares());
     }
