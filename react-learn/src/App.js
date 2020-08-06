@@ -3,7 +3,7 @@ import Counter from './Counter'
 
 export default function App() {
     return (
-        <div id="root">
+        <div>
             <Counter />
         </div>
     )
