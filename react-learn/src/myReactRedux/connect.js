@@ -53,6 +53,7 @@ export default function (mapStateToProps, mapDispatchToProps) {
 
             return <Comp {...state} {...handlers} {...props} />
         }
+        // 设置该组件的名称
         Temp.displayName = Comp.displayName || Comp.name;
         return Temp;
     }

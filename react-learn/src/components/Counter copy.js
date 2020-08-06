@@ -44,17 +44,20 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-//容器组件
+//connect高阶容器组件
 export default class CounterContainer extends React.Component {
     constructor(props) {
         super(props);
+        // 从redux仓库中获取所有的状态
         this.state = mapStateToProps(store.getState());
+        // 当仓库状态发生变化时，重新设置组件的状态，从而触发页面重新渲染
         store.subscribe(() => {
             this.setState(mapStateToProps(store.getState()))
         })
     }
 
     render() {
+        // 将dispatch事件和状态传给子组件
         const eventHandlers = mapDispatchToProps(store.dispatch)
         return <Counter {...this.state} {...eventHandlers} />
     }
