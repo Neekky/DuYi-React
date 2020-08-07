@@ -121,7 +121,7 @@ export default function (opts = {}) {
             });
         };
 
-        return composeWithDevTools(applyMiddleware(sagaMid));
+        return composeWithDevTools(applyMiddleware(routerMiddleware(options.history), sagaMid));
     };
 
     /**
@@ -146,7 +146,7 @@ export default function (opts = {}) {
      */
     function getExtraReducers(params) {
         return {
-            routing: connectRouter(options.history),
+            router: connectRouter(options.history),
             // eslint-disable-next-line no-useless-computed-key
             ['@@dva'](state = 0, action) {
                 return state;
@@ -222,7 +222,7 @@ export default function (opts = {}) {
      * @param {*} selector 
      */
     function render(selector, store) {
-        const routerConfig = app._router();
+        const routerConfig = app._router({ history: options.history, app });
         const root = <Provider store={store}>
             {routerConfig}
         </Provider>
