@@ -6,6 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import * as sagaEffects from './saga';
 import { createHashHistory } from 'history';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 
 /**
  * 创建dva对象的函数
@@ -145,9 +146,7 @@ export default function (opts = {}) {
      */
     function getExtraReducers(params) {
         return {
-            routing(state = null, action) {
-                return state;
-            },
+            routing: connectRouter(options.history),
             // eslint-disable-next-line no-useless-computed-key
             ['@@dva'](state = 0, action) {
                 return state;
