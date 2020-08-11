@@ -18,12 +18,22 @@ export default function (opts = {}) {
         _models: [], // 记录已经定义的模型
         router,
         _router: null, // 用于记录路由函数
-        start
+        start,
+        use
     };
 
     // 得到所有的配置
-    const options = getOptions();
+    let options = getOptions();
 
+    /**
+     * 使用dva插件
+     * @param {*} plugin 一个配置对象
+     */
+    function use (plugin) {
+        options = {...options, ...plugin}
+        console.log(plugin,'plugin')
+    }
+    
     /**
      * 得到配置
      */
@@ -34,8 +44,9 @@ export default function (opts = {}) {
             onError: opts.onError || (() => { }),
             onStateChange: opts.onStateChange || (() => { }),
             onReducer: opts.onReducer || ((reducer) => (state, action) => reducer(state, action)),
+            onEffect: opts.onEffect,
             extraReducers: opts.extraReducers || {},
-            extraEnhancers: opts.extraEnhancers || []
+            extraEnhancers: opts.extraEnhancers || [],
         }
 
         if (opts.onAction) {
@@ -143,9 +154,9 @@ export default function (opts = {}) {
                         }
                     }
                     // 对副作用func函数进一步封装
-                    if (opts.onEffect) {
+                    if (options.onEffect) {
                         let oldEffect = func;
-                        func = opts.onEffect(oldEffect, sagaEffects, item.model, item.type)
+                        func = options.onEffect(oldEffect, sagaEffects, item.model, item.type)
                     }
                     yield sagaEffects.takeEvery(item.type, func);
                 };

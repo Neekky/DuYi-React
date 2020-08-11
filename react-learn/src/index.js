@@ -3,6 +3,7 @@ import counterModel from "./models/counter";
 import agreeModel from "./models/agree";
 import routerConfig from "./routerConfig";
 import { createBrowserHistory } from 'history';
+import loading from './myDva/dvaLoading';
 
 const logger = store => next => action => {
     console.log('老状态', store.getState());
@@ -20,7 +21,7 @@ const app = dva({
         console.log(err.message);
         console.log(dispatch)
     },
-    onAction: logger,
+    // onAction: logger,
     onStateChange(state) {
         console.log(state.counter)
     },
@@ -37,23 +38,29 @@ const app = dva({
             console.log('副作用代码执行完毕');
         }
     },
-    extraReducers:{
+    extraReducers: {
         abc(state = 12, action) {
             if (action.type === 'counter/increase') return state + 1;
             return state;
         }
     },
     extraEnhancers: [function (createStore) {
-        return function(...args) {
+        return function (...args) {
             console.log('仓库即将创建');
             return createStore(...args);
         }
     }]
 });
 
+
+
 // 设置根路由
 // app.router(App);
 app.router(routerConfig);
+
+app.use(loading({
+    namespace: 'iamading'
+}))
 
 // 在启动之前定义模型
 app.model(counterModel);
