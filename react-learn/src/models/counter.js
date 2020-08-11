@@ -28,12 +28,12 @@ export default {
                 dispatch({ type: 'increase' })
             }
         },
-        resizeDecrease(obj) {
-            console.log(obj)
-            obj.history.listen(() => {
-                obj.dispatch({ type: 'decrease' })
-            })
-        }
+        // resizeDecrease(obj) {
+        //     console.log(obj)
+        //     obj.history.listen(() => {
+        //         obj.dispatch({ type: 'decrease' })
+        //     })
+        // }
     }
 }
 
