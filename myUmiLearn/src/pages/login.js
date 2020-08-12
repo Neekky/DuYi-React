@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function page1() {
+export default function login() {
     return (
         <div>
-            <h1>umi</h1>
+            需要登录
         </div>
     )
 }

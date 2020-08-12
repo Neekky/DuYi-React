@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function page1() {
+export default function index() {
     return (
         <div>
-            <h1>umi</h1>
+            <h1>错啦</h1>
         </div>
     )
 }
