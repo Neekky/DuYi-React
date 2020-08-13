@@ -1,13 +1,17 @@
 import React from 'react'
 import { connect } from 'dva'
+import styles from './Counter.less'
+import button from '../assets/css/link.css'
 
-function Counter({ number, onIncrease, onDecrease }) {
+console.log(button)
+function Counter({ number, onIncrease, onDecrease, onAsyncIncrease }) {
     return (
-        <div>
-            <h1>{number}</h1>
+        <div className={styles['counter-wrapper']}>
+            <h1 className={styles['title']}>{number}</h1>
             <p>
-                <button onClick={onIncrease}>增加</button>
-                <button onClick={onDecrease}>减少</button>
+                <button className={button['button']} onClick={onIncrease}>增加</button>
+                <button className={button['button']} onClick={onDecrease}>减少</button>
+                <button className={button['button']} onClick={onAsyncIncrease}>异步增加</button>
             </p>
         </div>
     )
@@ -24,6 +28,9 @@ const mapDispatchToProps = dispatch => ({
     onDecrease() {
         dispatch({ type: 'counter/decrease' })
     },
+    onAsyncIncrease() {
+        dispatch({ type: 'counter/asyncIncrease' })
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter)

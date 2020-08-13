@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Menu from '../components/menu'
+import Menu from '../components/Menu'
 
 export default function index(props) {
     const config = props.route.routes.find(config => config.path === props.location.pathname)

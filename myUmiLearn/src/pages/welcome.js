@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'antd'
 
-export default function welcome({ history }) {
+function welcome({ history }) {
     const loginId = localStorage.getItem('loginId')
     return (
         <div>
@@ -15,3 +15,7 @@ export default function welcome({ history }) {
         </div>
     )
 }
+
+welcome.title = '欢迎页'
+
+export default welcome

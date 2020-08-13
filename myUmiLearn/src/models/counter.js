@@ -9,5 +9,10 @@ export default {
             state--;
             return state;
         }
+    },
+    effects: {
+        *asyncIncrease(action, saga) {
+            console.log(saga,'saga',action)
+        }
     }
 }

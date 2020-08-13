@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-export default function login(props) {
+function login(props) {
     const loginId = useRef();
     const loginPwd = useRef();
     return (
@@ -24,3 +24,7 @@ export default function login(props) {
         </div>
     )
 }
+
+login.title = '登陆页';
+
+export default login
