@@ -8,6 +8,10 @@
     "build": "umi build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "devDependencies": {
+    "@umijs/preset-react": "^1",
+    "umi": "^3"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
