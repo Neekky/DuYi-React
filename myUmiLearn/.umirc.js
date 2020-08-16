@@ -34,11 +34,9 @@ export default {
         immer: true
     },
     antd: {},
-    // 相当于webpack中devServer中的proxy配置
-    proxy: {
-        "/api": {
-            target: "http://api.duyiedu.com",
-            changeOrigin: true
-        }
-    }
+    history: { type: 'hash' },
+    outputPath: "./output",
+    base: 'hassha',
+    publicPath: './public/',
+    // exportStatic: { htmlSuffix: true }
 }
