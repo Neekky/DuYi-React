@@ -25,6 +25,7 @@
         var generator = createGenerator(); //调用后，一定得到一个生成器
 
         var result = generator.next(); //{value:1, done:false}
+        console.log(result,'外部')
         while (!result.done) {
             //有迭代的值
             result = generator.next(result.value);

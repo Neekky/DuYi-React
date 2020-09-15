@@ -56,9 +56,10 @@
 
         // run(task);
 
-        let gen = task()
-        let result = gen.next()
-        result.value.then(res => gen.next(res).value).then(res => gen.next(res))
+        let gen = task();
+        let result = gen.next('第一次应该没东西');
+        result.value.then(res => gen.next('这是第一个传值').value).then(res => gen.next('这是第二个传值')).then(res => gen.next(
+            '这是第三个传值')).then(res => gen.next(res));
     </script>
 </body>
 
