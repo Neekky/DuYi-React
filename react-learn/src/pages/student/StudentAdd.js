@@ -2,7 +2,8 @@ import React from 'react'
 import { push } from "connected-react-router"
 import { connect } from "react-redux"
 
-function StudentAdd({ onClick }) {
+function StudentAdd({ onClick, router }) {
+    console.log(router,'123123')
     return (
         <div>
             <h1>添加学生页</h1>
@@ -13,10 +14,16 @@ function StudentAdd({ onClick }) {
     )
 }
 
+const mapStateToProps = function (state, props) {
+    return {
+        router: state.router.location.pathname
+    }
+}
+
 const mapDispatchToProps = dispatch => ({
     onClick: () => {
         dispatch(push("/courses"))
     }
 })
 
-export default connect(null, mapDispatchToProps)(StudentAdd)
+export default connect(mapStateToProps, mapDispatchToProps)(StudentAdd)

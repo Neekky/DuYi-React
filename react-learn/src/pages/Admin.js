@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from "../components/Layout"
 import Header from "../components/Header"
 import Menu from "../components/Menu"
@@ -9,8 +9,11 @@ import StudentAdd from "./student/StudentAdd"
 import CourseList from "./course/CourseList"
 import CourseAdd from "./course/CourseAdd"
 import StudentDetail from "./student/StudentDetail"
+import { connect } from 'react-redux'
 
-export default function Admin() {
+function Admin(props) {
+    console.log(props.router,'lll')
+
     return (
         <Layout
             header={<Header />}
@@ -27,3 +30,11 @@ export default function Admin() {
         </Layout>
     )
 }
+
+const mapStateToProps = function (state, props) {
+    return {
+        router: state.router.location.pathname
+    }
+}
+
+export default connect(mapStateToProps, null)(Admin);
