@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NewLifeCycle from "./OldLifeCycle"
+import NewLifeCycle from "./NewLifeCycle"
 
 export default class App extends Component {
     state = {

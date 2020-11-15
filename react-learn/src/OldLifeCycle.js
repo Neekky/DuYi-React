@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import OldChild from './OldChild'
 
 export default class OldLifeCycle extends Component {
     constructor(props) {
@@ -14,25 +15,24 @@ export default class OldLifeCycle extends Component {
         // this.setState({
         //     n:1
         // })
-        console.log("constructor", "一个新的组件诞生了！！！");
+        console.log("父组件constructor");
     }
 
 
     componentWillMount() {
-        console.log("componentWillMount", "组件即将被挂载");
+        console.log("父组件componentWillMount");
     }
 
     componentDidMount() {
-        console.log("componentDidMount", "挂载完成");
+        console.log("父组件componentDidMount");
     }
 
-
     componentWillReceiveProps(nextProps) {
-        console.log("componentWillReceiveProps", "接收到新的属性值", this.props, nextProps);
+        console.log("父组件componentWillReceiveProps");
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log("shouldComponentUpdate", "是否应该重新渲染", this.props, nextProps, this.state, nextState)
+        console.log("父组件shouldComponentUpdate")
         if (this.props.n === nextProps.n && this.state.n === nextState.n) {
             return false;
         }
@@ -41,23 +41,23 @@ export default class OldLifeCycle extends Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        console.log("componentWillUpdate", "组件即将被重新渲染");
+        console.log("父组件componentWillUpdate");
     }
-    
+
     componentDidUpdate(prevProps, prevState) {
-        console.log("componentDidUpdate", "组件已完成重新渲染", prevProps, prevState);
+        console.log("父组件componentDidUpdate");
     }
-    
+
     componentWillUnmount() {
-        console.log("componentWillUnmount", "组件被销毁")
+        console.log("父组件componentWillUnmount")
     }
-    
+
 
     render() {
-        console.log("render", "渲染，返回的React元素会被挂载到虚拟DOM树中");
+        console.log("父组件render");
         return (
             <div>
-                <h1>旧版生命周期组件</h1>
+                {/* <h1>旧版生命周期组件</h1> */}
                 <h2>属性n: {this.props.n}</h2>
                 <h2>状态n：{this.state.n}</h2>
                 <button onClick={() => {
@@ -65,6 +65,7 @@ export default class OldLifeCycle extends Component {
                         n: this.state.n + 1
                     })
                 }}>状态n+1</button>
+                <OldChild test={this.state.n} />
             </div>
         )
     }
